@@ -1,0 +1,81 @@
+<nav class="navbar navbar-expand-md navbar navbar-dark bg-dark">
+
+    <div class="navbar-brand">
+
+       <a class="navbar-brand" href="#">Real Music</a>
+
+    </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Artists <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">My music</a>
+      </li>
+
+    </ul>
+     <div class="navbar-nav" id="navbarSupportedContent">
+    <form class="form-inline my-2 my-lg-0">
+      <div class="nav-item">
+        <div class="nav-item">
+          <ul class="nav">
+          <li><a class="nav-link" href="#">Sign in</a></li>
+          </ul>
+         </div>
+      </div>
+      <button class="btn btn-dark" type="submit">Sign up</button>
+    </form>
+  </div>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <div class="row justify-content-end row align-items-center">
+
+<div class="col">
+  <h1><strong><%=@artist.name%></strong></h1>
+  <h3>Albums (<%= @albums.count %>)</h3>
+</div>
+
+
+
+  <div class="row align-items-end mt-5">
+      <div class="col">
+        <img src="<%= @artist.image_url%>" class="rounded float-right" alt="foto" height="250" width="350">
+      </div>
+  </div>
+
+
+
+    <div class="d-flex flex-wrap">
+      <% @albums.each do |album| %>
+
+      <div class="col-md-3 mt-5">
+
+
+        <div class="card" style="width: 8rem;">
+            <img src="<%=album.image_url%>" alt="foto" height="120" width="120">
+            <%# <%= album.image_url %>
+           <div class="card-body">
+               <h6 class="card-title"><%= album.name %></h6>
+               <p class="card-text"><%= album.released_at %></p>
+
+           </div>
+
+
+
+
+         </div>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
